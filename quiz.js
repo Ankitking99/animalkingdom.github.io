@@ -1,5 +1,5 @@
 const data = [
-    ["Sycon", "(Scypha)", "Porifera", null],
+    ["Sycon", "Scypha", "Porifera", null],
     ["Spongilla", "Fresh water sponge", "Porifera", null],
     ["Euspongia", "Bath sponge", "Porifera", null],
     ["Physalia", "Portuguese man-of-war", "Coelenterata (Cnidaria)", null],
