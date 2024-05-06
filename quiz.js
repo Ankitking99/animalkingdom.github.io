@@ -7,8 +7,8 @@ const data = [
     ["Pennatula", "Sea-pen", "Coelenterata (Cnidaria)", null],
     ["Gorgonia", "Sea-fan", "Coelenterata (Cnidaria)", null],
     ["Meandrina", "Brain coral", "Coelenterata (Cnidaria)", null],
-    ["Pleurobrachia", "Not available in NCERT", "Ctenophora", null],
-    ["Ctenoplana", "Not available in NCERT", "Ctenophora", null],
+    ["Pleurobrachia", "Not available in NCERT LOL\u{1F61C}", "Ctenophora", null],
+    ["Ctenoplana", "Not available in NCERT LOL\u{1F61C}", "Ctenophora", null],
     ["Taenia", "Tapeworm", "Platyhelminthes", null],
     ["Fasciola", "Liver fluke", "Platyhelminthes", null],
     ["Planaria", "Planaria is the common name itself( its scientific name in actually not written in ncert)", "Platyhelminthes", null],
@@ -21,9 +21,9 @@ const data = [
     ["Apis", "Honey bee", "Arthropoda", null],
     ["Bombyx", "Silkworm", "Arthropoda", null],
     ["Laccifer", "Lac insect", "Arthropoda", null],
-    ["Anopheles", "Not available in NCERT", "Arthropoda", null],
-    ["Culex", "Not available in NCERT", "Arthropoda", null],
-    ["Aedes", "Not available in NCERT", "Arthropoda", null],
+    ["Anopheles", "Not available in NCERT LOL\u{1F61C}", "Arthropoda", null],
+    ["Culex", "Not available in NCERT LOL\u{1F61C}", "Arthropoda", null],
+    ["Aedes", "Not available in NCERT LOL\u{1F61C}", "Arthropoda", null],
     ["Locusta", "Locust", "Arthropoda", null],
     ["Limulus", "King crab", "Arthropoda", null],
     ["Pila", "Apple snail", "Mollusca", null],
@@ -39,13 +39,13 @@ const data = [
     ["Antedon", "Sea lily", "Echinodermata", null],
     ["Cucumaria", "Sea cucumber", "Echinodermata", null],
     ["Ophiura", "Brittle star", "Echinodermata", null],
-    ["Balanoglossus", "Not available in NCERT", "Hemichordata", null],
-    ["Saccoglossus", "Not available in NCERT", "Hemichordata", null],
-    [" Ascidia", "Not available in NCERT", "Chordata, Urochordata(Protochordates)", null],
-    [" Salpa", "Not available in NCERT", "Chordata, Urochordata(Protochordates)", null],
-    [" Doliolum", "Not available in NCERT", "Chordata, Urochordata(Protochordates)", null],
-    [" Amphioxus(Branchiostoma)", "Not available in NCERT", "Chordata, Cephalochordata(Protochordates)", null],
-    [" Lancelet(Branchiostoma)", "Not available in NCERT", "Chordata, Cephalochordata(Protochordates)", null],
+    ["Balanoglossus", "Not available in NCERT LOL\u{1F61C}", "Hemichordata", null],
+    ["Saccoglossus", "Not available in NCERT LOL\u{1F61C}", "Hemichordata", null],
+    [" Ascidia", "Not available in NCERT LOL\u{1F61C}", "Chordata, Urochordata(Protochordates)", null],
+    [" Salpa", "Not available in NCERT LOL\u{1F61C}", "Chordata, Urochordata(Protochordates)", null],
+    [" Doliolum", "Not available in NCERT LOL\u{1F61C}", "Chordata, Urochordata(Protochordates)", null],
+    [" Amphioxus(Branchiostoma)", "Not available in NCERT LOL\u{1F61C}", "Chordata, Cephalochordata(Protochordates)", null],
+    [" Lancelet(Branchiostoma)", "Not available in NCERT LOL\u{1F61C}", "Chordata, Cephalochordata(Protochordates)", null],
     ["Petromyzon", "Lamprey", "Chordata", "Cyclostomata"],
     ["Myxine", "Hagfish", "Chordata", "Cyclostomata"],
     ["Scoliodon", "Dog fish", "Chordata", "Chondrichthyes"],
@@ -97,14 +97,23 @@ const data = [
     ["Panthera leo", "Lion", "Chordata", "Mammalia"]
 ];
 
-
 let currentIndex;
+let askedIndices = []; // Array to store indices of asked questions
 
 function getRandomIndex(max) {
-    return Math.floor(Math.random() * max);
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * max);
+    } while (askedIndices.includes(randomIndex));
+    askedIndices.push(randomIndex);
+    return randomIndex;
 }
 
 function displayNextQuestion() {
+    if (askedIndices.length === data.length) {
+        // All questions have been asked, reset askedIndices
+        askedIndices = [];
+    }
     currentIndex = getRandomIndex(data.length);
     const [sn, cn, p, c] = data[currentIndex];
     document.getElementById("scientific-name").textContent = `Scientific Name (SN): ${sn}`;
