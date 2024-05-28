@@ -4,9 +4,10 @@ body {
     margin-top: 50px;
 }
 
+/* Original styles for the quiz container */
 #quiz-container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 20px; /* Added bottom margin for spacing */
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -26,4 +27,40 @@ body {
 
 #result {
     white-space: pre-wrap;
+}
+
+/* Styles for the "Other Services" section */
+#other-services {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#other-services h2 {
+    margin-top: 0;
+}
+
+#other-services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#other-services li {
+    margin-bottom: 10px;
+}
+
+#other-services a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#other-services a:hover {
+    background-color: #45a049;
 }
